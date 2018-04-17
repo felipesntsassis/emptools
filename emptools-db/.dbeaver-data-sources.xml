@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="postgres-jdbc-162d3b34ce6-64d8ae1911e353c" provider="postgresql" driver="postgres-jdbc" name="PostgreSQL - EmpTools" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="5432" server="" database="emptools" url="jdbc:postgresql://localhost:5432/emptools" user="emptools" password="FgkWNE5MSAVl8w==" type="dev">
+			<provider-property name="@dbeaver-show-non-default-db@" value="false"/>
+			<provider-property name="@dbeaver-switch-db-on-expand@" value="false"/>
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" save-password="false">
+				<property name="sshConnectTimeout" value="10000"/>
+				<property name="authType" value="PASSWORD"/>
+				<property name="port" value="22"/>
+				<property name="implementation" value="jsch"/>
+			</network-handler>
+			<network-handler type="CONFIG" id="postgre_ssl" enabled="false" save-password="false"/>
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" save-password="false">
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+		</connection>
+	</data-source>
+	<filters/>
+</data-sources>
