@@ -14,8 +14,7 @@ public class Dominios {
 	/**
 	 * Constantes responsáveis em definir o nome das unidades de persistência JPA da aplicação.
 	 */
-	public static final String APP_PERSISTENCE_UNIT = "RHFTalentos";
-	public static final String TEST_PERSISTENCE_UNIT = "RHFTalentosTeste";
+	public static final String APP_PERSISTENCE_UNIT = "EmpTools";
 	public static final String ARQUIVO_MESSAGES = "messages_pt_BR.properties";
 
 	/**

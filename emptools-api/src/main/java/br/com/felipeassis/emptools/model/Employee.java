@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 /**
- * Model to represent the Employee
+ * Model to represent the Employee.
  * @author Felipe dos Santos Assis - felipesntsassis@gmail.com
  * @package br.com.felipeassis.emptools.model
  * @since 17/04/2018
@@ -44,10 +44,10 @@ public class Employee implements Serializable {
 	@Length(max = 100)
 	private String name;
 	
-	@Column
-	@Length(max = 250)
+	@OneToOne
+	@JoinColumn(name = "role_id")
 	@NotNull
-	private String role;
+	private Role role;
 
 	@OneToOne
 	@JoinColumn(name = "manager_id", referencedColumnName = "employee_id")
@@ -89,11 +89,19 @@ public class Employee implements Serializable {
 		this.id = id;
 	}
 
-	public String getRole() {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
