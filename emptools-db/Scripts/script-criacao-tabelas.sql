@@ -24,6 +24,7 @@ comment on column tb_skill.description is 'The skill description';
 create sequence tb_project_seq start 1;
 create table tb_project(
 	project_id bigint not null default nextval('tb_project_seq'),
+	name varchar(100) not null,
 	customer varchar(250) not null,
 	value numeric(10,2) not null,
 	dt_begin timestamp not null,
@@ -33,6 +34,7 @@ create table tb_project(
 create index idx_tb_project on tb_project using btree (project_id, customer, value, dt_begin, dt_end);
 comment on table tb_project is 'Table to registry the Employee projects';
 comment on column tb_project.project_id is 'The project primary key'; 
+comment on column tb_project.name is 'The project name';
 comment on column tb_project.customer is 'The project customer';
 comment on column tb_project.value is 'The project value';
 comment on column tb_project.dt_begin is 'The date and hour when project begun';
