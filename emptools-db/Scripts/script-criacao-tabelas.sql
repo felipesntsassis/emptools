@@ -10,6 +10,17 @@ comment on table tb_certification is 'Table to registry the Employee Certificati
 comment on column tb_certification.certification_id is 'The certification primary key'; 
 comment on column tb_certification.description is 'The certification description';
 
+create sequence tb_role_seq start 1;
+create table tb_role(
+	role_id bigint not null default nextval('tb_role_seq'),
+	description varchar(250) not null,
+	constraint pk_tb_role primary key (role_id)
+);
+create index idx_tb_role on tb_role using btree (role_id, description);
+comment on table tb_role is 'Table to registry the Employee roles';
+comment on column tb_role.role_id is 'The role primary key'; 
+comment on column tb_role.description is 'The role description';
+
 create sequence tb_skill_seq start 1;
 create table tb_skill(
 	skill_id bigint not null default nextval('tb_skill_seq'),
@@ -44,19 +55,20 @@ create sequence tb_employee_seq start 1;
 create table tb_employee(
 	employee_id bigint not null default nextval('tb_employee_seq'),
 	name varchar(100) not null,
-	role varchar(250) not null,
-	manager_id bigint not null,
+	role_id bigint not null,
+	manager_id bigint,
 	gcm varchar(25) not null,
 	salary numeric(10,2) not null,
 	constraint pk_tb_employee primary key (employee_id),
+	constraint fk_tb_employee_tb_role foreign key (role_id) references tb_role(role_id),
 	constraint fk_tb_employee_manager foreign key (manager_id) references tb_employee(employee_id)
 );
-create index idx_tb_employee on tb_employee using btree (employee_id, name, role, manager_id, gcm, salary);
+create index idx_tb_employee on tb_employee using btree (employee_id, name, role_id, manager_id, gcm, salary);
 comment on table tb_employee is 'Table to registry the Employees';
 comment on column tb_employee.employee_id is 'The employee primary key'; 
 comment on column tb_employee.name is 'The employee name';
-comment on column tb_employee.role is 'The employee role';
-comment on column tb_employee.manager_id is 'Foregign key that identifies the employee manager';
+comment on column tb_employee.role_id is 'Foreign key that identifies the employee role';
+comment on column tb_employee.manager_id is 'Foreign key that identifies the employee manager';
 comment on column tb_employee.gcm is 'The employee GCM data';
 comment on column tb_employee.salary is 'The employee salary';
 
