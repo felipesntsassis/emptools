@@ -33,7 +33,7 @@ public class Project {
 	@Column(name = "project_id")
 	private Long id;
 
-	@Column(name = "description")
+	@Column(name = "name")
 	@Length(max = 100)
 	@NotNull
 	private String customer;
@@ -89,5 +89,10 @@ public class Project {
 
 	public void setDtEnd(Date dtEnd) {
 		this.dtEnd = dtEnd;
+	}
+	
+	@Override
+	public String toString() {
+		return this.customer;
 	}
 }

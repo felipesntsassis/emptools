@@ -1,10 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>VRaptor Blank Project</title>
-</head>
-<body>
-	It works!! ${variable} ${linkTo[IndexController].index}
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>EmpTools - Home</title>
+	</head>
+	
+	<body>
+		<h1>Bem vindo!</h1>
+		<h5>It works!! ${variable} ${linkTo[IndexController].index}</h5>
+	</body>
 </html>
