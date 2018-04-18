@@ -1,18 +1,16 @@
 -- Database: emptools
-
 -- DROP DATABASE emptools;
 
 CREATE DATABASE emptools
     WITH 
     OWNER = emptools
     ENCODING = 'UTF8'
-    LC_COLLATE = 'Portuguese_Brazil.1252'
-    LC_CTYPE = 'Portuguese_Brazil.1252'
+    LC_COLLATE = 'pt_BR.UTF-8'
+    LC_CTYPE = 'pt_BR.UTF-8'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
-COMMENT ON DATABASE emptools
-    IS 'EmpTools Application database.';
+COMMENT ON DATABASE emptools IS 'Database to Emptools Application';
 
 -- User: emptools
 -- DROP USER emptools;
