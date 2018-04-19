@@ -110,9 +110,9 @@ public class Dao<T> {
 				List<Order> orders = new ArrayList<Order>();
 				
 				for (int i  = 0; i  < ordem.length; i += 2) {
-					if (ordem[i + 1].equals(Dominios.ORDEM_ASC)) {
+					if (ordem[i + 1].equals(Dominios.ORDER_ASC)) {
 						orders.add(builder.asc(rootEntry.get(ordem[i])));
-					} else if (ordem[i + 1].equals(Dominios.ORDEM_DESC)) {
+					} else if (ordem[i + 1].equals(Dominios.ORDER_DESC)) {
 						orders.add(builder.desc(rootEntry.get(ordem[i])));
 					}
 				}

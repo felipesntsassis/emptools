@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import br.com.felipeassis.emptools.exception.ApplicationException;
 import br.com.felipeassis.emptools.model.Employee;
 import br.com.felipeassis.emptools.persistence.EmployeeDao;
+import br.com.felipeassis.emptools.util.Dominios;
 
 /**
  * Classs defined to implement the Employees businessrules.
@@ -25,7 +26,7 @@ public class EmployeeBusiness {
 	 * @throws ApplicationException
 	 */
 	public List<Employee> listAll() throws ApplicationException {
-		return employeeDao.listAll();
+		return employeeDao.listAll(new String[] { "name", Dominios.ORDER_ASC });
 	}
 
 	/**
@@ -35,5 +36,14 @@ public class EmployeeBusiness {
 	 */
 	public List<Employee> listAllWithDetails() throws ApplicationException {
 		return employeeDao.listAllWithDetails();
+	}
+
+	/**
+	 * List all Employees by Filter.
+	 * @param filter: EmployeeFilter
+	 * @throws ApplicationException
+	 */
+	public void findByFilter(EmployeeFilter filter) throws ApplicationException {
+		employeeDao.findByFilter(filter);
 	}
 }

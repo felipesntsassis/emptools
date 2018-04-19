@@ -331,10 +331,10 @@ public class TreatString {
 		if (TreatNull.isNull(jpql)) {
 			return null;
 		}
-		if (jpql.toString().contains(Dominios.OPERADOR_AND)) {
-			int index = jpql.indexOf(Dominios.OPERADOR_AND);
+		if (jpql.toString().contains(Dominios.AND_OPERATOR)) {
+			int index = jpql.indexOf(Dominios.AND_OPERATOR);
 			
-			jpql = jpql.replace(index, index + 3, Dominios.CLAUSULA_WHERE);
+			jpql = jpql.replace(index, index + 3, Dominios.WHERE_CLAUSULE);
 		}
 		
 		return jpql;
@@ -349,10 +349,10 @@ public class TreatString {
 		if (TreatNull.isNull(jpql)) {
 			return null;
 		}
-		if (jpql.toString().contains(Dominios.OPERADOR_OR)) {
-			int index = jpql.indexOf(Dominios.OPERADOR_OR);
+		if (jpql.toString().contains(Dominios.OR_OPERATOR)) {
+			int index = jpql.indexOf(Dominios.OR_OPERATOR);
 			
-			jpql = jpql.replace(index, index + 2, Dominios.CLAUSULA_WHERE);
+			jpql = jpql.replace(index, index + 2, Dominios.WHERE_CLAUSULE);
 		}
 		
 		return jpql;

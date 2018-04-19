@@ -2,6 +2,8 @@ package br.com.felipeassis.emptools.util;
 
 import java.io.Serializable;
 
+import com.google.gson.JsonObject;
+
 /**
  * Classe definida para disparar mensagens (gerais ou de regras negociais em
  * todo sistema).
@@ -23,6 +25,13 @@ public class ApplicationMessage implements Serializable {
 	 * Constante referente ao ícone de informação.
 	 */
 	public static final int ICON_INFO = 2;
+
+	/**
+	 * Constante referente ao tipo de mensagem
+	 */
+	public static final String MSG_TYPE_ERROR = "error";
+	public static final String MSG_TYPE_WARNING = "warning";
+	public static final String MSG_TYPE_SUCCESS = "error";
 
 	/**
 	 * Tipo de ícone apresentado na mensagem
@@ -83,4 +92,17 @@ public class ApplicationMessage implements Serializable {
 		this.mensagem = mensagem;
 	}
 
+	/**
+	 * Returns the message in JSON format.
+	 * @param type: String
+	 * @param message: String
+	 * @return JsonObject
+	 */
+	public static JsonObject getJsonMessage(String type, String message) {
+		JsonObject json = new JsonObject();
+		json.addProperty("type", type);
+		json.add("message", json);
+		
+		return json;
+	}
 }
